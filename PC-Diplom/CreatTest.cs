@@ -95,6 +95,7 @@ namespace PC_Diplom
                     myCommand.ExecuteNonQuery();//выполняет запрос
                     Teacher.idtests = (int)myCommand.ExecuteScalar();//результат запроса
 
+                    /
                     myCommand.CommandText = string.Format("INSERT INTO vopros (name,var1,var2,var3,var4,answer,idtest) " +
                                                                                "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
                                                                                Vopros, OtvetA, OtvetB, OtvetV, OtvetG, TrueOtvet, Teacher.idtests);
