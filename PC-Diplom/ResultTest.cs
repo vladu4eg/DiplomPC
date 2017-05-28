@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PC_Diplom
 {
-    public partial class Form1 : Form
+    public partial class ResultTest : Form
     {
-        public Form1()
+        public ResultTest()
         {
             InitializeComponent();
         }
