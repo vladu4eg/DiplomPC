@@ -33,7 +33,7 @@ namespace PC_Diplom
                 Uri ftp_path = new Uri("ftp://u0354899_vlad:vlad19957@31.31.196.162" + url + fileName); // file.txt - файл, который будет в конечном итоге залит; FTPLOGIN - логин к FTP; PASSWORD - пароль к FTP; LOGIN и PASSWORD разделяются двоеточием.
                 myWebClient.UploadFile(ftp_path, urlName); // anyfile.txt - загружаемый файл на FTP; C:/Files... - путь к загружаемому файлу; ftp_path - конечный путь и имя файла, которое будет на FTP сервере.
 
-                string urlFileJPEG = "www.imtis.ru/task/jpeg/" + Main.LoginGlobal + "/" + fileName;
+                string urlFileJPEG = "http://www.imtis.ru/task/jpeg/" + Main.LoginGlobal + "/" + fileName;
                 myCommand.CommandText = string.Format("INSERT INTO task (TextTask,PicTask,idtest) VALUES('{0}','{1}','{2}')", textBoxVopros.Text, urlFileJPEG, Teacher.idtests);
                 myCommand.Prepare();//подготавливает строку
                 myCommand.ExecuteNonQuery();//выполняет запрос
@@ -63,6 +63,11 @@ namespace PC_Diplom
         private void buttonQR_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Task_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonJPEG_Click(object sender, EventArgs e)

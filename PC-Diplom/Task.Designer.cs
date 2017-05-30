@@ -101,6 +101,7 @@
             this.Name = "Task";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task";
+            this.Load += new System.EventHandler(this.Task_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
