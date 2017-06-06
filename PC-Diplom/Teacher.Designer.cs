@@ -50,7 +50,7 @@
             // 
             // buttonResult
             // 
-            this.buttonResult.Location = new System.Drawing.Point(9, 177);
+            this.buttonResult.Location = new System.Drawing.Point(6, 167);
             this.buttonResult.Name = "buttonResult";
             this.buttonResult.Size = new System.Drawing.Size(210, 23);
             this.buttonResult.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(12, 242);
+            this.buttonExit.Location = new System.Drawing.Point(9, 216);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(207, 23);
             this.buttonExit.TabIndex = 2;
@@ -88,6 +88,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(9, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 13);
@@ -102,20 +103,25 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioButton1.Location = new System.Drawing.Point(12, 80);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(164, 17);
+            this.radioButton1.Size = new System.Drawing.Size(170, 18);
             this.radioButton1.TabIndex = 36;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Тестирование с задачами?";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.UseVisualStyleBackColor = false;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(243, 277);
+            this.BackgroundImage = global::PC_Diplom.Properties.Resources.BG_SJ;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(243, 251);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.buttonDownPDF);
             this.Controls.Add(this.textBoxNameTest);

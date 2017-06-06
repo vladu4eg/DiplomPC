@@ -163,16 +163,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\main.png" />
+    <None Include="Resources\BG-SJ.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btn.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Rectangle 12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bg.jpg" />
+    <Content Include="Resources\bg.jpg" />
+    <Content Include="Resources\bg1.jpg" />
+    <Content Include="Resources\bg2.jpg" />
+    <Content Include="Resources\btn.png" />
+    <Content Include="Resources\main.png" />
+    <Content Include="Resources\no.jpg" />
+    <Content Include="Resources\Rectangle 12.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.1\build\net451\System.Data.SQLite.Core.targets')" />

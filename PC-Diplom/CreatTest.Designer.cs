@@ -62,6 +62,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(13, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
@@ -80,6 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(13, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
@@ -89,6 +92,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(13, 191);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
@@ -98,6 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(13, 217);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
@@ -107,6 +112,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(13, 243);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 13);
@@ -144,54 +150,59 @@
             // radioButtonOtvetA
             // 
             this.radioButtonOtvetA.AutoSize = true;
+            this.radioButtonOtvetA.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonOtvetA.Location = new System.Drawing.Point(215, 165);
             this.radioButtonOtvetA.Name = "radioButtonOtvetA";
             this.radioButtonOtvetA.Size = new System.Drawing.Size(120, 17);
             this.radioButtonOtvetA.TabIndex = 13;
             this.radioButtonOtvetA.TabStop = true;
             this.radioButtonOtvetA.Text = "Правильный ответ";
-            this.radioButtonOtvetA.UseVisualStyleBackColor = true;
+            this.radioButtonOtvetA.UseVisualStyleBackColor = false;
             this.radioButtonOtvetA.CheckedChanged += new System.EventHandler(this.radioButtonOtvetA_CheckedChanged);
             // 
             // radioButtonOtvetB
             // 
             this.radioButtonOtvetB.AutoSize = true;
+            this.radioButtonOtvetB.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonOtvetB.Location = new System.Drawing.Point(214, 191);
             this.radioButtonOtvetB.Name = "radioButtonOtvetB";
             this.radioButtonOtvetB.Size = new System.Drawing.Size(120, 17);
             this.radioButtonOtvetB.TabIndex = 14;
             this.radioButtonOtvetB.TabStop = true;
             this.radioButtonOtvetB.Text = "Правильный ответ";
-            this.radioButtonOtvetB.UseVisualStyleBackColor = true;
+            this.radioButtonOtvetB.UseVisualStyleBackColor = false;
             this.radioButtonOtvetB.CheckedChanged += new System.EventHandler(this.radioButtonOtvetB_CheckedChanged);
             // 
             // radioButtonOtvetV
             // 
             this.radioButtonOtvetV.AutoSize = true;
+            this.radioButtonOtvetV.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonOtvetV.Location = new System.Drawing.Point(214, 217);
             this.radioButtonOtvetV.Name = "radioButtonOtvetV";
             this.radioButtonOtvetV.Size = new System.Drawing.Size(120, 17);
             this.radioButtonOtvetV.TabIndex = 15;
             this.radioButtonOtvetV.TabStop = true;
             this.radioButtonOtvetV.Text = "Правильный ответ";
-            this.radioButtonOtvetV.UseVisualStyleBackColor = true;
+            this.radioButtonOtvetV.UseVisualStyleBackColor = false;
             this.radioButtonOtvetV.CheckedChanged += new System.EventHandler(this.radioButtonOtvetV_CheckedChanged);
             // 
             // radioButtonOtvetG
             // 
             this.radioButtonOtvetG.AutoSize = true;
+            this.radioButtonOtvetG.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonOtvetG.Location = new System.Drawing.Point(214, 243);
             this.radioButtonOtvetG.Name = "radioButtonOtvetG";
             this.radioButtonOtvetG.Size = new System.Drawing.Size(120, 17);
             this.radioButtonOtvetG.TabIndex = 16;
             this.radioButtonOtvetG.TabStop = true;
             this.radioButtonOtvetG.Text = "Правильный ответ";
-            this.radioButtonOtvetG.UseVisualStyleBackColor = true;
+            this.radioButtonOtvetG.UseVisualStyleBackColor = false;
             this.radioButtonOtvetG.CheckedChanged += new System.EventHandler(this.radioButtonOtvetG_CheckedChanged);
             // 
             // labelError
             // 
             this.labelError.AutoSize = true;
+            this.labelError.BackColor = System.Drawing.Color.Transparent;
             this.labelError.Location = new System.Drawing.Point(216, 263);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(85, 13);
@@ -226,6 +237,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::PC_Diplom.Properties.Resources.BG_SJ;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(355, 406);
             this.Controls.Add(this.buttonQR);
             this.Controls.Add(this.buttonJPEG);

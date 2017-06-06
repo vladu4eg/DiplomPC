@@ -40,13 +40,14 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(11, 97);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Вход";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
@@ -63,6 +64,7 @@
             // 
             // textBoxLogin
             // 
+            this.textBoxLogin.BackColor = System.Drawing.SystemColors.Info;
             this.textBoxLogin.Location = new System.Drawing.Point(11, 32);
             this.textBoxLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxLogin.Name = "textBoxLogin";
@@ -92,6 +94,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Image = global::PC_Diplom.Properties.Resources.btn;
             this.label4.Location = new System.Drawing.Point(11, 55);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -103,6 +106,7 @@
             // labelError
             // 
             this.labelError.AutoSize = true;
+            this.labelError.BackColor = System.Drawing.Color.Transparent;
             this.labelError.Location = new System.Drawing.Point(11, 151);
             this.labelError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelError.Name = "labelError";
@@ -113,21 +117,23 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.Menu;
             this.button2.Location = new System.Drawing.Point(11, 125);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(146, 23);
             this.button2.TabIndex = 8;
             this.button2.Text = "Регистрация";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::PC_Diplom.Properties.Resources.BG_SJ;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(448, 254);
+            this.ClientSize = new System.Drawing.Size(196, 190);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.label4);

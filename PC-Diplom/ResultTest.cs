@@ -235,5 +235,12 @@ namespace PC_Diplom
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Teacher teacher = new Teacher();
+            teacher.Show();
+            this.Close();
+        }
     }
 }

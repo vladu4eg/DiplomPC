@@ -75,5 +75,12 @@ namespace PC_Diplom
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.Show();
+            this.Close();
+        }
     }
 }

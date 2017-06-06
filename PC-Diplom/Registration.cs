@@ -62,6 +62,7 @@ namespace PC_Diplom
             string otch = textBoxOtchestvo.Text;
             string group = textBoxGRorKAF.Text;
             string zacketka = textBoxZachetka.Text;
+
             if (pass1 != pass2)
                 labelError.Text = "Пароль не совпадает!";
             else if (FirstName == String.Empty)
@@ -70,13 +71,8 @@ namespace PC_Diplom
                 labelError.Text = "Введите Фамилию";
             else if (otch == String.Empty)
                 labelError.Text = "Введите Отчество";
-            else if (group == String.Empty)
-            {
-                if (checkBoxStudent.Checked == false)
-                {
-                    labelError.Text = "Введите Группу";
-                }
-            }
+            else if (group == String.Empty && checkBoxStudent.Checked == false)
+                labelError.Text = "Введите Группу";
             else if (checkBoxStudent.Checked == false && zacketka == String.Empty)
                 labelError.Text = "Введите номер зачетки";
             else
