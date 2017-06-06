@@ -21,6 +21,12 @@ namespace PC_Diplom
         public CreatTest()
         {
             InitializeComponent();
+            if(Teacher.TaskIs)
+            {
+                buttonQR.Text = "Создать задачи";
+            }
+            else
+                buttonQR.Text = "Закончить создание тестов";
         }
 
         private void radioButtonOtvetA_CheckedChanged(object sender, EventArgs e)
@@ -216,15 +222,24 @@ namespace PC_Diplom
 
         private void buttonQR_Click(object sender, EventArgs e)
         {
-            QR qr = new QR();
-            qr.Show();
-            this.Hide();
+
+            if(Teacher.TaskIs)
+            {
+                Task task = new Task();
+                task.Show();
+                this.Hide();
+            }
+            else
+            {
+                QR qr = new QR();
+                qr.Show();
+                this.Hide();
+            }
         }
 
         private void buttonTask_Click(object sender, EventArgs e)
         {
-            Task task = new Task();
-            task.ShowDialog();
+
         }
 
         private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)

@@ -47,7 +47,6 @@
             this.buttonJPEG = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.buttonQR = new System.Windows.Forms.Button();
-            this.buttonTask = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSendTest
@@ -215,7 +214,7 @@
             // 
             // buttonQR
             // 
-            this.buttonQR.Location = new System.Drawing.Point(64, 356);
+            this.buttonQR.Location = new System.Drawing.Point(62, 357);
             this.buttonQR.Name = "buttonQR";
             this.buttonQR.Size = new System.Drawing.Size(146, 37);
             this.buttonQR.TabIndex = 22;
@@ -223,22 +222,11 @@
             this.buttonQR.UseVisualStyleBackColor = true;
             this.buttonQR.Click += new System.EventHandler(this.buttonQR_Click);
             // 
-            // buttonTask
-            // 
-            this.buttonTask.Location = new System.Drawing.Point(63, 327);
-            this.buttonTask.Name = "buttonTask";
-            this.buttonTask.Size = new System.Drawing.Size(145, 23);
-            this.buttonTask.TabIndex = 23;
-            this.buttonTask.Text = "Добавить задачу";
-            this.buttonTask.UseVisualStyleBackColor = true;
-            this.buttonTask.Click += new System.EventHandler(this.buttonTask_Click);
-            // 
             // CreatTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(355, 406);
-            this.Controls.Add(this.buttonTask);
             this.Controls.Add(this.buttonQR);
             this.Controls.Add(this.buttonJPEG);
             this.Controls.Add(this.labelError);
@@ -287,6 +275,5 @@
         private System.Windows.Forms.Button buttonJPEG;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button buttonQR;
-        private System.Windows.Forms.Button buttonTask;
     }
 }

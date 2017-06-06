@@ -35,13 +35,14 @@
             this.textBoxNameTest = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // buttonTest
             // 
-            this.buttonTest.Location = new System.Drawing.Point(9, 51);
+            this.buttonTest.Location = new System.Drawing.Point(12, 103);
             this.buttonTest.Name = "buttonTest";
-            this.buttonTest.Size = new System.Drawing.Size(102, 23);
+            this.buttonTest.Size = new System.Drawing.Size(207, 23);
             this.buttonTest.TabIndex = 0;
             this.buttonTest.Text = "Создать тесты";
             this.buttonTest.UseVisualStyleBackColor = true;
@@ -49,18 +50,19 @@
             // 
             // buttonResult
             // 
-            this.buttonResult.Location = new System.Drawing.Point(9, 80);
+            this.buttonResult.Location = new System.Drawing.Point(9, 177);
             this.buttonResult.Name = "buttonResult";
-            this.buttonResult.Size = new System.Drawing.Size(222, 23);
+            this.buttonResult.Size = new System.Drawing.Size(210, 23);
             this.buttonResult.TabIndex = 1;
             this.buttonResult.Text = "Проверить результаты студентов";
             this.buttonResult.UseVisualStyleBackColor = true;
+            this.buttonResult.Click += new System.EventHandler(this.buttonResult_Click);
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(12, 109);
+            this.buttonExit.Location = new System.Drawing.Point(12, 242);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(75, 23);
+            this.buttonExit.Size = new System.Drawing.Size(207, 23);
             this.buttonExit.TabIndex = 2;
             this.buttonExit.Text = "Выход";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -68,9 +70,9 @@
             // 
             // buttonDownPDF
             // 
-            this.buttonDownPDF.Location = new System.Drawing.Point(129, 51);
+            this.buttonDownPDF.Location = new System.Drawing.Point(9, 51);
             this.buttonDownPDF.Name = "buttonDownPDF";
-            this.buttonDownPDF.Size = new System.Drawing.Size(102, 23);
+            this.buttonDownPDF.Size = new System.Drawing.Size(210, 23);
             this.buttonDownPDF.TabIndex = 34;
             this.buttonDownPDF.Text = "Загрузить PDF";
             this.buttonDownPDF.UseVisualStyleBackColor = true;
@@ -80,7 +82,7 @@
             // 
             this.textBoxNameTest.Location = new System.Drawing.Point(9, 25);
             this.textBoxNameTest.Name = "textBoxNameTest";
-            this.textBoxNameTest.Size = new System.Drawing.Size(222, 20);
+            this.textBoxNameTest.Size = new System.Drawing.Size(210, 20);
             this.textBoxNameTest.TabIndex = 33;
             // 
             // label7
@@ -88,29 +90,42 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(9, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 13);
+            this.label7.Size = new System.Drawing.Size(115, 13);
             this.label7.TabIndex = 32;
-            this.label7.Text = "Название теста";
+            this.label7.Text = "Название материала";
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(12, 80);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(164, 17);
+            this.radioButton1.TabIndex = 36;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Тестирование с задачами?";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 179);
+            this.ClientSize = new System.Drawing.Size(243, 277);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.buttonDownPDF);
             this.Controls.Add(this.textBoxNameTest);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.buttonTest);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Teacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
             this.Load += new System.EventHandler(this.Teacher_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -126,5 +141,6 @@
         private System.Windows.Forms.TextBox textBoxNameTest;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

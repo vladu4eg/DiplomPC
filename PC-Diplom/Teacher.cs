@@ -17,6 +17,7 @@ namespace PC_Diplom
     {
         static public string NameTest;
         static public int idtests;
+        static public bool TaskIs = false;
         string urlName, url, fileName;
         bool CheckPDF = false;
         public Teacher()
@@ -107,6 +108,28 @@ namespace PC_Diplom
             myConnection.Close();
             CreatTest test = new CreatTest();
             test.Show();
+            this.Hide();
+        }
+
+        private void buttonListResult_Click(object sender, EventArgs e)
+        {
+            ResultTest result = new ResultTest();
+            result.Show();
+            this.Hide();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButton1.Checked)
+            TaskIs = true;
+            else
+                TaskIs = false;
+        }
+
+        private void buttonResult_Click(object sender, EventArgs e)
+        {
+            ResultTest result = new ResultTest();
+            result.Show();
             this.Hide();
         }
 

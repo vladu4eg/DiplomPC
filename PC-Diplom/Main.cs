@@ -15,7 +15,7 @@ namespace PC_Diplom
 
 
         static public string LoginGlobal;
-
+        static public int IdTeacher;
         public Main()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace PC_Diplom
                 myCommand.ExecuteNonQuery();//выполняет запрос
                 LoginGlobal = (string)myCommand.ExecuteScalar();//результат запроса
                 if (LoginGlobal == login)
-                    MessageBox.Show("Вы зашли как студент");
+                    MessageBox.Show("Вы зашли как студент! Скачайте мобильное приложение для студентов.");
                 else if (LoginGlobal != login)
                 {
                     myCommand.CommandText = string.Format("SELECT login FROM teacher WHERE login='{0}' AND password='{1}' ", login, pass);//запрос: если есть такой логин в таблице
@@ -51,6 +51,11 @@ namespace PC_Diplom
                     LoginGlobal = (string)myCommand.ExecuteScalar();//результат запроса
                     if (LoginGlobal == login)
                     {
+                        myCommand.CommandText = string.Format("SELECT id FROM teacher WHERE login='{0}' AND password='{1}' ", login, pass);//запрос: если есть такой логин в таблице
+                        myCommand.Prepare();//подготавливает строку
+                        myCommand.ExecuteNonQuery();//выполняет запрос
+                        IdTeacher = (int)myCommand.ExecuteScalar();//результат запроса
+
                         MessageBox.Show("Вы зашли как преподаватель");
                         Teacher teacher = new Teacher();
                         teacher.Show();

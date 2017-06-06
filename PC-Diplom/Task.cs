@@ -62,7 +62,9 @@ namespace PC_Diplom
 
         private void buttonQR_Click(object sender, EventArgs e)
         {
-            this.Close();
+            QR qr = new QR();
+            qr.Show();
+            this.Hide();
         }
 
         private void Task_Load(object sender, EventArgs e)

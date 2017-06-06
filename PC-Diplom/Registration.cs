@@ -32,14 +32,16 @@ namespace PC_Diplom
         {
             if (checkBoxStudent.Checked == true)
             {
-                label8.Text = "Ранк";
+                label8.Visible = false;
                 label9.Visible = false;
                 textBoxZachetka.Visible = false;
+                textBoxGRorKAF.Visible = false;
             }
             else
             {
-                label8.Text = "Группа";
+                label8.Visible = true;
                 label9.Visible = true;
+                textBoxGRorKAF.Visible = true;
                 textBoxZachetka.Visible = true;
             }
         }
@@ -58,7 +60,7 @@ namespace PC_Diplom
             string LastName = textBoxLastName.Text;
             string FirstName = textBoxFirstName.Text;
             string otch = textBoxOtchestvo.Text;
-            string GRorRank = textBoxGRorKAF.Text;
+            string group = textBoxGRorKAF.Text;
             string zacketka = textBoxZachetka.Text;
             if (pass1 != pass2)
                 labelError.Text = "Пароль не совпадает!";
@@ -68,13 +70,9 @@ namespace PC_Diplom
                 labelError.Text = "Введите Фамилию";
             else if (otch == String.Empty)
                 labelError.Text = "Введите Отчество";
-            else if (GRorRank == String.Empty)
+            else if (group == String.Empty)
             {
-                if (checkBoxStudent.Checked == true)
-                {
-                    labelError.Text = "Введите Ранк";
-                }
-                else
+                if (checkBoxStudent.Checked == false)
                 {
                     labelError.Text = "Введите Группу";
                 }
@@ -93,13 +91,13 @@ namespace PC_Diplom
                     myCommand.Connection = myConnection;
                     if (checkBoxStudent.Checked == true)
                     {
-                        myCommand.CommandText = string.Format("INSERT INTO teacher (FirstName,LastName,MiddleName,rank,login,password) " +
-                                                             "VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", LastName, FirstName, otch, GRorRank, login, pass1);
+                        myCommand.CommandText = string.Format("INSERT INTO teacher (FirstName,LastName,MiddleName,login,password) " +
+                                                             "VALUES('{0}','{1}','{2}','{3}','{4}')", LastName, FirstName, otch, login, pass1);
                     }
                     else
                     {
                         myCommand.CommandText = string.Format("INSERT INTO Student (FirstName,LastName,MiddleName,groups,login,password,zachetka) " +
-                                                             "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", LastName, FirstName, otch, GRorRank, login, pass1, zacketka);
+                                                             "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", LastName, FirstName, otch, group, login, pass1, zacketka);
                     }
                     myCommand.Prepare();//подготавливает строку
                     myCommand.ExecuteNonQuery();//выполняет запрос
@@ -132,6 +130,11 @@ namespace PC_Diplom
         private void buttonBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBoxGRorKAF_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

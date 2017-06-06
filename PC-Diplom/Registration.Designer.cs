@@ -121,6 +121,7 @@
             this.textBoxGRorKAF.Name = "textBoxGRorKAF";
             this.textBoxGRorKAF.Size = new System.Drawing.Size(230, 20);
             this.textBoxGRorKAF.TabIndex = 8;
+            this.textBoxGRorKAF.TextChanged += new System.EventHandler(this.textBoxGRorKAF_TextChanged);
             // 
             // label2
             // 
