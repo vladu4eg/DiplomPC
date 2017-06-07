@@ -13,22 +13,31 @@ namespace PC_Diplom
 {
     public partial class ResultTest : Form
     {
-        List<string> vopros = new List<string>();
+        List<string> TaskList = new List<string>();
 
+        int indexAnswer = 1;
         public int IdTakeTest;
         public int IdStudent;
         public ResultTest()
         {
             InitializeComponent();
+            button2.Enabled = false;
 
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
-            var product = listBox1.SelectedItem as Test;
-            IdTakeTest = product.ID;
-            GetStudentList();
+            listView1.Clear();
+            button2.Enabled = false;
+
+            var list = listBox1.SelectedItem as Test;
+            if (list != null)
+            {
+                IdTakeTest = list.ID;
+                GetStudentList();
+            }
+
 
         }
 
@@ -74,17 +83,17 @@ namespace PC_Diplom
         private class Test2
         {
             public int ID { get; set; }
-            public string name { get; set; }
+            public string Name { get; set; }
 
             public Test2(string fn, string ln, string mn, int idstudent)
             {
-                name = fn + " " + ln + " " + mn;
+                Name = fn + " " + ln + " " + mn;
                 ID = idstudent;
             }
 
             public override string ToString()
             {
-                return name;
+                return Name;
             }
         }
 
@@ -109,14 +118,14 @@ namespace PC_Diplom
         public void GetStudentListAnswer()
         {
 
-
+            List<string> vopros = new List<string>();
             try
             {
                 string connsqlstring = "Database=u0354899_diplom;Data Source=31.31.196.162;User Id=u0354899_vlad;Password=vlad19957;charset=utf8";
                 MySqlConnection sqlconn = new MySqlConnection(connsqlstring);
                 sqlconn.Open();
                 DataSet tickets = new DataSet();
-                string queryString = string.Format("SELECT test_history.ocenka, test_history.true_quest, test_history.id FROM test_history WHERE test_history.idstudent = '{0}' AND test_history.idtest = '{1}'", IdStudent, IdTakeTest);
+                string queryString = string.Format("SELECT test_history.false_quest, test_history.true_quest, test_history.id, test_history.ocenka FROM test_history WHERE test_history.idstudent = '{0}' AND test_history.idtest = '{1}'", IdStudent, IdTakeTest);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(queryString, sqlconn);
                 adapter.Fill(tickets, "Item");
 
@@ -125,19 +134,23 @@ namespace PC_Diplom
                     vopros.Add(row[0].ToString());
                     vopros.Add(row[1].ToString());
                     vopros.Add(row[2].ToString());
+                    vopros.Add(row[3].ToString());
                 }
                 // Set to details view.
                 listView1.View = View.Details;
                 // Add a column with width 20 and left alignment.
-                listView1.Columns.Add("Оценка", 50, HorizontalAlignment.Left);
+                listView1.Columns.Add("Кол. неправильных ответов", 100, HorizontalAlignment.Left);
                 listView1.Columns.Add("Кол. правильных ответов", 100, HorizontalAlignment.Left);
+                listView1.Columns.Add("Общие количество", 100, HorizontalAlignment.Left);
+                listView1.Columns.Add("Оценка", 100, HorizontalAlignment.Left);
                 //listView1.Columns.Add("ID", 50, HorizontalAlignment.Left);
 
                 //vopros.ForEach(test => listView1.Items.Add(test));
 
                 listView1.Items.Add(vopros[0].ToString()); //первый столбец listview1
                 listView1.Items[0].SubItems.Add(vopros[1].ToString());
-               // listView1.Items[0].SubItems.Add(vopros[2].ToString());
+                listView1.Items[0].SubItems.Add(Convert.ToString(Convert.ToInt32(vopros[1]) + Convert.ToInt32(vopros[0])));
+                listView1.Items[0].SubItems.Add(vopros[3].ToString());
 
                 sqlconn.Close();
             }
@@ -156,27 +169,25 @@ namespace PC_Diplom
                 MySqlConnection sqlconn = new MySqlConnection(connsqlstring);
                 sqlconn.Open();
                 DataSet tickets = new DataSet();
-                string queryString = string.Format("SELECT task_history.answer FROM task_history,test_history WHERE test_history.idtest = '{0}' AND test_history.idstudent = '{1}'", IdTakeTest, IdStudent);
+                string queryString = string.Format("SELECT DISTINCT task_history.answer FROM task_history,test_history WHERE test_history.idtest = '{0}' AND task_history.idstudent = '{1}'", IdTakeTest, IdStudent);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(queryString, sqlconn);
-                adapter.Fill(tickets);
-                foreach (DataRow row in tickets.Tables[0].Rows)
+
+                adapter.Fill(tickets, "Item");
+
+                foreach (DataRow row in tickets.Tables["Item"].Rows)
                 {
-                    string FN = Convert.ToString(row["FirstName"]);
-                    string LN = Convert.ToString(row["LastName"]);
-                    string MD = Convert.ToString(row["MiddleName"]);
-
-                    int idstudent = Convert.ToInt32(row["id"]);
-
-                    listBox2.Items.Add(new Test2(FN, LN, MD, idstudent));
+                    TaskList.Add(row[0].ToString());
                 }
 
                 sqlconn.Close();
+                label5.Text = TaskList[0];
             }
             catch (Exception e)
             {
 
             }
         }
+
 
 
         public void GetStudentList()
@@ -219,11 +230,16 @@ namespace PC_Diplom
 
         private void listBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            var product = listBox2.SelectedItem as Test2;
-            IdStudent = product.ID;
-            GetStudentListAnswer();
-            GetStudentAnswerTask();
+            listView1.Clear();
+            var test2 = listBox2.SelectedItem as Test2;
+            if(test2 != null)
+            {
+                IdStudent = test2.ID;
+                GetStudentListAnswer();
+                GetStudentAnswerTask();
+            }
+            button2.Enabled = true;
+
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -241,6 +257,50 @@ namespace PC_Diplom
             Teacher teacher = new Teacher();
             teacher.Show();
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Connect = "Database=u0354899_diplom;Data Source=31.31.196.162;User Id=u0354899_vlad;Password=vlad19957;charset=cp1251";
+                MySql.Data.MySqlClient.MySqlConnection myConnection = new MySql.Data.MySqlClient.MySqlConnection(Connect);
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand();
+                myConnection.Open();
+                myCommand.Connection = myConnection;
+                myCommand.CommandText = string.Format("UPDATE test_history SET ocenka = '{0}' WHERE idstudent = '{1}' AND idtest = '{2}'", textBox1.Text, IdStudent, IdTakeTest);
+
+                myCommand.Prepare();//подготавливает строку
+                myCommand.ExecuteNonQuery();//выполняет запрос
+                myConnection.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            textBox1.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(TaskList.Count > indexAnswer)
+            {
+                label5.Text = TaskList[indexAnswer];
+                indexAnswer++;
+            }
+            else
+                label5.Text = "Больше нет ответов на задачи!";
         }
     }
 }
