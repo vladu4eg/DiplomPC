@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PC_Diplom
@@ -16,6 +9,12 @@ namespace PC_Diplom
     {
         string urlName, url, fileName;
         bool CheckJPEG = false;
+
+        public Task()
+        {
+            InitializeComponent();
+        }
+
         private void buttonSendTest_Click(object sender, EventArgs e)
         {
             string Connect = "Database=u0354899_diplom;Data Source=31.31.196.162;User Id=u0354899_vlad;Password=vlad19957;charset=cp1251";
@@ -37,7 +36,6 @@ namespace PC_Diplom
                 myCommand.CommandText = string.Format("INSERT INTO task (TextTask,PicTask,idtest) VALUES('{0}','{1}','{2}')", textBoxVopros.Text, urlFileJPEG, Teacher.idtests);
                 myCommand.Prepare();//подготавливает строку
                 myCommand.ExecuteNonQuery();//выполняет запрос
-
                 CheckJPEG = false;
             }
             else
@@ -50,26 +48,11 @@ namespace PC_Diplom
             myConnection.Close();
         }
 
-        public Task()
-        {
-            InitializeComponent();
-        }
-
-        private void textBoxVopros_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonQR_Click(object sender, EventArgs e)
         {
             QR qr = new QR();
             qr.Show();
             this.Hide();
-        }
-
-        private void Task_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonJPEG_Click(object sender, EventArgs e)
@@ -111,6 +94,12 @@ namespace PC_Diplom
                 FtpWebResponse resp = (FtpWebResponse)ftp.GetResponse();
                 resp.Close();
             }
+        }
+        private void textBoxVopros_TextChanged(object sender, EventArgs e)
+        {
+        }
+        private void Task_Load(object sender, EventArgs e)
+        {
         }
     }
 }

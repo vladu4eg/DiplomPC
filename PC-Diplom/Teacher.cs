@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PC_Diplom
@@ -24,12 +17,6 @@ namespace PC_Diplom
         {
             InitializeComponent();
         }
-
-        private void Teacher_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -70,19 +57,15 @@ namespace PC_Diplom
         private void buttonTest_Click(object sender, EventArgs e)
         {
             NameTest = textBoxNameTest.Text;
-
             string Connect = "Database=u0354899_diplom;Data Source=31.31.196.162;User Id=u0354899_vlad;Password=vlad19957;charset=cp1251";
             MySql.Data.MySqlClient.MySqlConnection myConnection = new MySql.Data.MySqlClient.MySqlConnection(Connect);
             MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand();
-
             myConnection.Open();
             myCommand.Connection = myConnection;
-
             myCommand.CommandText = string.Format("SELECT id FROM teacher WHERE login='{0}'", Main.LoginGlobal);
             myCommand.Prepare();//подготавливает строку
             myCommand.ExecuteNonQuery();//выполняет запрос
             int idtecher = (int)myCommand.ExecuteScalar();//результат запроса
-
             myCommand.CommandText = string.Format("INSERT INTO tests (idteacher,NameTest) " + "VALUES('{0}','{1}')", idtecher, NameTest);
             myCommand.Prepare();//подготавливает строку
             myCommand.ExecuteNonQuery();//выполняет запрос
@@ -90,21 +73,14 @@ namespace PC_Diplom
             if(CheckPDF == true)
             {
                 checkFolderFtp(url);
-                // читаем файл в строку
-                //string fileText = System.IO.File.ReadAllText(filename);
                 WebClient myWebClient = new WebClient();
-                //myWebClient.UploadFileCompleted += new UploadFileCompletedEventHandler(UploadFileCallback2); // типо прогресс загрузки
-                // myWebClient.UploadProgressChanged += new UploadProgressChangedEventHandler(UploadProgressCallback);
                 Uri ftp_path = new Uri("ftp://u0354899_vlad:vlad19957@31.31.196.162" + url + fileName); // file.txt - файл, который будет в конечном итоге залит; FTPLOGIN - логин к FTP; PASSWORD - пароль к FTP; LOGIN и PASSWORD разделяются двоеточием.
                 myWebClient.UploadFile(ftp_path, urlName); // anyfile.txt - загружаемый файл на FTP; C:/Files... - путь к загружаемому файлу; ftp_path - конечный путь и имя файла, которое будет на FTP сервере.
-
                 string urlFile = "http://www.imtis.ru/pdf/" + Main.LoginGlobal + "/" + fileName;
-
                 myCommand.CommandText = string.Format("UPDATE tests SET pdf = '{0}' WHERE id = '{1}'", urlFile, idtests);
                 myCommand.Prepare();//подготавливает строку
                 myCommand.ExecuteNonQuery();//выполняет запрос
             }
-
             myConnection.Close();
             CreatTest test = new CreatTest();
             test.Show();
@@ -116,14 +92,6 @@ namespace PC_Diplom
             ResultTest result = new ResultTest();
             result.Show();
             this.Hide();
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if(radioButton1.Checked)
-            TaskIs = true;
-            else
-                TaskIs = false;
         }
 
         private void buttonResult_Click(object sender, EventArgs e)
@@ -143,14 +111,23 @@ namespace PC_Diplom
             urlName = openFileDialog1.FileName;
             fileName = Path.GetFileName(urlName);
             url = "/www/imtis.ru/pdf/" + Main.LoginGlobal + "/";
-
             buttonDownPDF.Visible = false;
             CheckPDF = true;
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+                TaskIs = true;
+            else
+                TaskIs = false;
+        }
+
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-
+        }
+        private void Teacher_Load(object sender, EventArgs e)
+        {
         }
     }
 }

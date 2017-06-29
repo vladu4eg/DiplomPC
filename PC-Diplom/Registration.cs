@@ -17,17 +17,6 @@ namespace PC_Diplom
             InitializeComponent();
         }
 
-        private void Registration_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void Registration_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxStudent.Checked == true)
@@ -46,14 +35,8 @@ namespace PC_Diplom
             }
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-
             string login = textBoxLogin.Text;
             string pass1 = textBoxPassword1.Text;
             string pass2 = textBoxPassword2.Text;
@@ -77,7 +60,6 @@ namespace PC_Diplom
                 labelError.Text = "Введите номер зачетки";
             else
             {
-
                 try
                 {
                     string Connect = "Database=u0354899_diplom;Data Source=31.31.196.162;User Id=u0354899_vlad;Password=vlad19957;charset=cp1251";
@@ -87,12 +69,12 @@ namespace PC_Diplom
                     myCommand.Connection = myConnection;
                     if (checkBoxStudent.Checked == true)
                     {
-                        myCommand.CommandText = string.Format("INSERT INTO teacher (FirstName,LastName,MiddleName,login,password) " +
+                        myCommand.CommandText = string.Format("INSERT INTO teacher (LastName,FirstName,MiddleName,login,password) " +
                                                              "VALUES('{0}','{1}','{2}','{3}','{4}')", LastName, FirstName, otch, login, pass1);
                     }
                     else
                     {
-                        myCommand.CommandText = string.Format("INSERT INTO Student (FirstName,LastName,MiddleName,groups,login,password,zachetka) " +
+                        myCommand.CommandText = string.Format("INSERT INTO Student (LastName,FirstName,MiddleName,groups,login,password,zachetka) " +
                                                              "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", LastName, FirstName, otch, group, login, pass1, zacketka);
                     }
                     myCommand.Prepare();//подготавливает строку
@@ -108,29 +90,31 @@ namespace PC_Diplom
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+        }
+
         private void textBoxGRorKAF_TextChanged(object sender, EventArgs e)
         {
-
+        }
+        private void Registration_Load(object sender, EventArgs e)
+        {
+        }
+        private void label8_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PC_Diplom
@@ -101,7 +95,6 @@ namespace PC_Diplom
                     myCommand.ExecuteNonQuery();//выполняет запрос
                     Teacher.idtests = (int)myCommand.ExecuteScalar();//результат запроса
 
-                    
                     myCommand.CommandText = string.Format("INSERT INTO vopros (name,var1,var2,var3,var4,answer,idtest) " +
                                                                                "VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
                                                                                Vopros, OtvetA, OtvetB, OtvetV, OtvetG, TrueOtvet, Teacher.idtests);
@@ -123,10 +116,8 @@ namespace PC_Diplom
                         myCommand.ExecuteNonQuery();//выполняет запрос
                         CheckJPEG = false;
                     }
-
                     myConnection.Close();
                 }
-                
             }
             catch (Exception ex)
             {
@@ -137,9 +128,7 @@ namespace PC_Diplom
             textBoxOtvetB.Text = String.Empty;
             textBoxOtvetV.Text = String.Empty;
             textBoxOtvetG.Text = String.Empty;
-            // labelError.Text = "Вопрос добавлен";
         }
-
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -153,7 +142,6 @@ namespace PC_Diplom
             url = "/www/imtis.ru/jpeg/" + Main.LoginGlobal + "/";
             CheckJPEG = true;
         }
-
 
         private void checkFolderFtp(string ftpFolderPath)
         {
@@ -184,46 +172,9 @@ namespace PC_Diplom
             }
         }
 
-
-        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
-        {
-
-        }
-
-        private void folderBrowserDialog1_HelpRequest_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void openFileDialog1_FileOk_1(object sender, CancelEventArgs e)
-        {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void buttonDownJPEG_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void buttonQR_Click(object sender, EventArgs e)
         {
-
-            if(Teacher.TaskIs)
+            if (Teacher.TaskIs)
             {
                 Task task = new Task();
                 task.Show();
@@ -237,24 +188,49 @@ namespace PC_Diplom
             }
         }
 
+        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        {
+        }
+
+        private void folderBrowserDialog1_HelpRequest_1(object sender, EventArgs e)
+        {
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+        }
+
+        private void openFileDialog1_FileOk_1(object sender, CancelEventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+
+        private void buttonDownJPEG_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
+        {
+        }
+
         private void buttonTask_Click(object sender, EventArgs e)
         {
-
         }
 
         private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
         {
-
         }
 
         private void CreatTest_Load(object sender, EventArgs e)
         {
-
         }
 
         private void textBoxVopros_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

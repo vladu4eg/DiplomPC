@@ -1,29 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PC_Diplom
 {
     public partial class Main : Form
     {
-
-
         static public string LoginGlobal;
         static public int IdTeacher;
+
         public Main()
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,13 +42,11 @@ namespace PC_Diplom
                         myCommand.Prepare();//подготавливает строку
                         myCommand.ExecuteNonQuery();//выполняет запрос
                         IdTeacher = (int)myCommand.ExecuteScalar();//результат запроса
-
                         MessageBox.Show("Вы зашли как преподаватель");
                         Teacher teacher = new Teacher();
                         teacher.Show();
                         this.Hide();
                     }
-
                     else
                         MessageBox.Show("Логин или пароль не совпадают");
                 }
@@ -69,21 +54,20 @@ namespace PC_Diplom
             }
             catch (Exception ex)
             {
-                labelError.Text = ex.Message;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Registration newMDIChild = new Registration();
-            //newMDIChild.MdiParent = this;
-            newMDIChild.ShowDialog();
-            //this.Hide();
+            Registration reg = new Registration();;
+            reg.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
         }
     }
 }
